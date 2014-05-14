@@ -1,0 +1,13 @@
+{
+  "name": "test",
+  "version": "0.0.1",
+  "repo": "user/repo",
+  "description": "Test description",
+  "keywords": ["foo", "bar", "biz"],
+  "license": "MIT",
+  "src": [
+    "include/test.h",
+    "src/test.c"
+  ]
+}
+

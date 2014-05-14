@@ -1,0 +1,22 @@
+{
+  "name": "test",
+  "version": "0.0.1",
+  "repo": "user/repo",
+  "description": "Test description",
+  "keywords": ["foo", "bar", "biz"],
+  "license": "MIT",
+  "src": [
+    "sock.h",
+
+    "include/sock/common.h",
+    "include/sock/opt.h",
+    "include/sock/socket.h",
+    "include/sock/dgram.h",
+    "include/sock/tcp.h",
+
+    "src/opt.c",
+    "src/socket.c",
+    "src/tcp.c"
+  ]
+}
+
