@@ -1,22 +1,10 @@
 {
-  "name": "test",
+  "name": "clib-link",
   "version": "0.0.1",
-  "repo": "user/repo",
-  "description": "Test description",
-  "keywords": ["foo", "bar", "biz"],
+  "repo": "jwerle/cilb-link",
+  "description": "Symlink an existing clib project source to yours",
+  "keywords": ["clib", "util", "link"],
   "license": "MIT",
-  "src": [
-    "sock.h",
-
-    "include/sock/common.h",
-    "include/sock/opt.h",
-    "include/sock/socket.h",
-    "include/sock/dgram.h",
-    "include/sock/tcp.h",
-
-    "src/opt.c",
-    "src/socket.c",
-    "src/tcp.c"
-  ]
+  "install": "make install"
 }
 
