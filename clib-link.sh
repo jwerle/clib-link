@@ -11,7 +11,7 @@ opt PREFIX "/usr/local"
 ## output usage
 usage () {
   {
-    echo "usage: clib-link [-hV]"
+    echo "usage: clib-link [-hV] [name]"
   } >&2
 }
 
@@ -76,7 +76,35 @@ make_link () {
 }
 
 get_link () {
-  echo
+  local name="$1"
+  local path="${PREFIX}/clibs/${name}"
+  local deps="${CWD}/deps"
+  local let i=0;
+  local file=""
+  local files=""
+
+  if ! test -d "${path}"; then
+    error "Unknown clib \`${name}'"
+    exit 1
+  fi
+
+  files=($(ls ${path}))
+
+  if [ -z "${files}" ]; then
+    error "clib \`${name}' has nothing to link"
+    exit 1
+  fi
+
+  if ! test -d "${deps}"; then
+    mkdir "${deps}"
+  fi
+
+  if test "${deps}/${name}"; then
+    rm -f "${deps}/${name}"
+  fi
+
+  ln -s "${path}" "${deps}/${name}"
+  echo "${path} => ${deps}/${name}"
 }
 
 read_source () {
@@ -125,7 +153,7 @@ read_source () {
       break;
     fi
 
-    if [ "-" != "${arg:0}" ]; then
+    if [ "-" != "${arg:0:1}" ]; then
       continue
     fi
 
@@ -154,12 +182,12 @@ read_source () {
 case "${#}" in
   ## make link
   0)
-    make_link "$1"
+    make_link
     ;;
 
   ## get link
   1)
-    get_link "${CWD}"
+    get_link "$1"
     ;;
 
   *)
