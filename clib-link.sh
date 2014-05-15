@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION="0.0.1"
+VERSION="0.0.2"
 
 ## sets optional variable from environment
 opt () { eval "if [ -z "\${$1}" ]; then ${1}=${2}; fi";  }
@@ -100,7 +100,7 @@ get_link () {
   fi
 
   if test "${deps}/${name}"; then
-    rm -f "${deps}/${name}"
+    rm -rf "${deps}/${name}"
   fi
 
   ln -s "${path}" "${deps}/${name}"

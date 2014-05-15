@@ -1,6 +1,6 @@
 {
   "name": "clib-link",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repo": "jwerle/cilb-link",
   "description": "Symlink an existing clib project source to yours",
   "keywords": ["clib", "util", "link"],
